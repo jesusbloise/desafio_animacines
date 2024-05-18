@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root {
+    --bg: #0F0F0F;
+    --primary: #008170;
+    --border: #525151;
+    --text: #000;
+    --white: #fff;
+    --font: "Open Sans", sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font);
+    color: var(--text);
+    background: var(--bg);
+ 
+}
+
+a {
+    text-decoration: none;
+}
+
+#root {
+    display: grid;
+    grid-template-areas: 
+        "nav"
+        "header"
+        "related"
+        "article"
+        "aside"
+        "footer";
+}
+/* menu */
+.main-menu {
+    border-top: 1px solid var(--primary);
+    border-right: 1px solid var(--primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    grid-area: nav;
+}
+
+.menu-toggler {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.25rem;
+}
+
+.main-menu ul {
+    background-color: var(--bg);
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: fixed;
+    top: 65px;
+    right: 0;
+    width: 80%;
+    max-width: 400px;
+    padding: 3rem;
+    height: calc(100vh - 65px);
+    transform: translateX(100%);
+    transition: transform 0.2s ease;
+}
+.main-menu img {
+    display: none;
+    width: 200px;
+}
+.main-menu .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.main-menu a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.main-menu a:hover {
+    color: var(--primary);
+}
+
+.open .main-menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.open header {
+    margin-top: 65px;
+}
+
+.open .main-menu ul {
+    transform: translateX(0);
+}
+/*header*/
+
+header {
+    background-position: center 80%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    margin-bottom: 10rem;
+    grid-area: header;
+}
+.background-container {
+  
+    width: 100%; /* Ajusta el tamaño como desees */
+    height: 100%; /* Ajusta el tamaño como desees */
+    background-image: url('../img/frases-de-Matrix.jpg'); /* URL de tu imagen de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
+    animation: moverFondo 10s linear infinite; /* Animación del movimiento del fondo */
+}
+  
+  @keyframes moverFondo {
+    0% {
+      background-position: 0 0; /* Posición inicial del fondo */
+    }
+    50% {
+      background-position: 100px 0; /* Posición intermedia del fondo */
+    }
+    100% {
+      background-position: 0 0; /* Posición final del fondo (vuelve a la posición inicial) */
+    }
+  }
+  
+
+header h1 {
+    font-size: 3rem;
+}
+
+header p {
+    font-size: 1.25rem;
+}
+
+article {
+    color: var(--white);
+    padding: 2rem;
+    grid-area: article;
+}
+.animado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: animarTitulo 2s ease-in-out infinite alternate; /* Nombre de la animación, duración, curva de aceleración, repetición y dirección */
+  }
+  
+  @keyframes animarTitulo {
+    0% {
+      transform: scale(1); /* Escala inicial del título */
+    }
+    100% {
+      transform: scale(1.1); /* Escala final del título */
+    }
+  }
+  
+article h2 {
+    font-size: 400%;
+    margin-bottom: 3rem;
+}
+
+article p {
+    margin-bottom: 1rem;
+}
+
+#Acerca-de-mi {
+    padding-top: 20px;
+    color: var(--white);
+}
+
+aside {
+    color: var(--white);
+    border-right: 1px solid var(--primary);
+    padding: 2rem 1rem;
+    grid-area: aside;
+}
+
+aside .widget {
+    margin-bottom: 2rem;
+}
+
+aside .widget h3 {
+    margin-bottom: 0.5rem;
+}
+
+aside .widget ul {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+aside .widget a {
+    color: var(--primary);
+}
+
+aside .widget a:hover {
+    text-decoration: underline;
+}
+/* pelota */
+  .ball {
+ display: none;
+  }
+  
+  
+/*galeria*/
+.related-posts {
+    border-top: 1px solid var(--primary);
+    padding: 1rem;
+    grid-area: related;
+}
+.related-posts h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+    padding-top: 1rem;
+    color: var(--white);
+}
+.related-posts h3 {
+    margin-bottom: 1rem;
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.post-gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+}
+
+.related-posts .card {
+    text-align: center;
+}
+
+.related-posts .card a {
+    color: var(--text);
+}
+
+.related-posts .card a:hover {
+    color: var(--primary);
+}
+
+.related-posts .card a:hover img {
+    transform: scale(1.2)
+}
+
+
+/* .related-posts .image-container {
+    overflow: hidden;
+} */
+
+.related-posts .card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.2s ease;
+}
+
+footer {
+    border-top: 1px solid var(--primary);
+    grid-area: footer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: var(--border);
+    color: var(--white);
+    padding: 2rem;
+    width: 100%; /* Ajusta el tamaño como desees */
+    height: 100%; /* Ajusta el tamaño como desees */
+    background-image: url('../img/frases-de-Matrix.jpg'); /* URL de tu imagen de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
+    animation: moverFondo 10s linear infinite; /* Animación del movimiento del fondo */
+}
+  
+  @keyframes moverFondo {
+    0% {
+      background-position: 0 0; /* Posición inicial del fondo */
+    }
+    50% {
+      background-position: 100px 0; /* Posición intermedia del fondo */
+    }
+    100% {
+      background-position: 0 0; /* Posición final del fondo (vuelve a la posición inicial) */
+    }
+  }
+
+
+footer .info {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+footer .info p {
+    font-size: 0.9rem;
+}
+
+footer nav {
+    width: 100%;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+footer ul a {
+    color: var(--white);
+    font-size: 0.9rem;
+}
+
+footer ul a:hover {
+    text-decoration: underline;
+}
+footer i {
+    font-size:  50px;
+    padding: 1rem;
+}
+footer .copyright {
+    width: 100%;
+    text-align: center;
+    font-size: 0.75rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+@media (min-width: 576px) {
+    .post-gallery {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    #root {
+        grid-template-columns: 0.5fr 5fr;
+        grid-template-areas: 
+            "header header"
+            "nav related"
+            "aside article"
+            "footer footer";
+    }
+
+    .menu-toggler {
+        display: none;
+    }
+    .main-menu {
+        display: flex;
+        justify-content: start;
+        flex-direction: column;
+        grid-area: nav;
+    }
+    .main-menu ul {
+        position: relative;
+        width: auto;
+        max-width: none;
+        height: auto;
+        padding: 0;
+        flex-direction: row;
+        top: 0;
+        transform: translateX(0);
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .main-menu img {
+        display: flex;
+     }
+    aside {
+        color: var(--white);
+        border-left: none;
+    }
+    .ball {
+        display: grid;
+        padding: 1rem;
+        width: 50px;
+        height: 50px;
+        background-color: rgb(5, 244, 69);
+        border-radius: 50%;
+        position: relative;
+        animation: bounce 2s infinite alternate; /* Animación de rebote */
+      }
+      
+      @keyframes bounce {
+        0% {
+          top: 0; /* Posición inicial */
+        }
+        100% {
+          top: calc(100vh - 50px); /* Posición final (parte inferior de la ventana menos el tamaño de la pelota) */
+        }
+      }
+    .related-posts {
+        padding: 3rem 2rem;
+    }
+
+    footer .info {
+        width: 40%;
+    }
+
+    footer nav {
+        width: auto;
+    }
+}
